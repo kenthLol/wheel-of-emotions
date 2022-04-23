@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette of emotions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-box" class="mainbox">
+        <div id="box" class="box">
+            <div class="box1">
+                <span class="span1"><b>&#128512;</b></span>
+                <span class="span2"><b>&#128545;</b></span>
+                <span class="span3"><b>&#128561;</b></span>
+                <span class="span4"><b>&#129326;</b></span>
+            </div>
+            <div class="box2">
+                <span class="span1"><b>?</b></span>
+                <span class="span2"><b>&#128552;</b></span>
+                <span class="span3"><b>&#128542;</b></span>
+                <span class="span4"><b>?</b></span>
+            </div>
+        </div>
+
+        <button class="spin" onclick="myfunction()">GIRAR</button>
+    </div>
+
+    <script>
+        function myfunction(){
+            var x = 1024; //main value
+            var y = 9999; //max value
+
+            var deg = Math.floor(Math.random() * (x - y)) + y;
+            document.getElementById('box').style.transform = "rotate("+deg+"deg)";
+
+            var element = document.getElementById('main-box');
+            element.classList.remove('animate');
+            setTimeout(function(){
+                element.classList.add('animate');
+            }, 5000); //5000 = 5 second
+        }
+    </script>
+</body>
+</html>
